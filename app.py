@@ -12,7 +12,7 @@ app = Flask(__name__)
 
 @app.route('/', methods =['GET'])
 def index():
-    return render_template('index.html')
+    return render_template("index.html")
 
 @app.route('/', methods=['POST'])
 def predict():
@@ -30,6 +30,11 @@ def predict():
 
     classification = '%s (%.2f%%)' % (label[1], label[2]*100)
     return render_template('index.html')
+
+@app.route('/video')
+def new_page():
+    return render_template('video.html')
+
 
 if __name__ == '__main__':
     app.run(port=3000, debug=True)
